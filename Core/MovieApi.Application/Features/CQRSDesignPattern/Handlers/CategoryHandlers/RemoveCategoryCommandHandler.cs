@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace MovieApi.Application.Features.CQRSDesignPattern.Handlers.CategoryHandlers
 {
-    public class RemoveCategoryHandler
+    public class RemoveCategoryCommandHandler
     {
         private readonly MovieContext _context;
-        public RemoveCategoryHandler(MovieContext context)
+        public RemoveCategoryCommandHandler(MovieContext context)
         {
             _context = context;
         }
 
-        public async void Handle(RemoveCategoryCommand command)
+        public async Task Handle(RemoveCategoryCommand command)
         {
             var value = await _context.Categories.FindAsync(command.CategoryId);
             _context.Categories.Remove(value);

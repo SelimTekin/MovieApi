@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace MovieApi.Application.Features.CQRSDesignPattern.Handlers.MovieHandlers
 {
-    public class CreateMovieHandler
+    public class CreateMovieCommandHandler
     {
         private readonly MovieContext _context;
 
-        public CreateMovieHandler(MovieContext context)
+        public CreateMovieCommandHandler(MovieContext context)
         {
             _context = context;
         }
-        public async void Handle(CreateMovieCommand request)
+        public async Task Handle(CreateMovieCommand request)
         {
             await _context.Movies.AddAsync(new Movie
             {

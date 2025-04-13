@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace MovieApi.Application.Features.CQRSDesignPattern.Handlers.MovieHandlers
 {
-    public class UpdateMovieHandler
+    public class UpdateMovieCommandHandler
     {
         private readonly MovieContext _context;
-        public UpdateMovieHandler(MovieContext context)
+        public UpdateMovieCommandHandler(MovieContext context)
         {
             _context = context;
         }
-        public async void Handle(UpdateMovieCommand command)
+        public async Task Handle(UpdateMovieCommand command)
         {
             var value = await _context.Movies.FindAsync(command.MovieId);
             value.Title = command.Title;

@@ -9,5 +9,10 @@ namespace MovieApi.Application.Features.CQRSDesignPattern.Commands.CategoryComma
     public class RemoveCategoryCommand
     {
         public int CategoryId { get; set; }
+
+        public RemoveCategoryCommand(int categoryId)
+        {
+            CategoryId = categoryId;
+        }
     }
 }
