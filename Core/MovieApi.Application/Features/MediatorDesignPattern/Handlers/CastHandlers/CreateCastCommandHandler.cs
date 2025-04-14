@@ -20,7 +20,7 @@ namespace MovieApi.Application.Features.MediatorDesignPattern.Handlers.CastHandl
         // CancellationToken is used to cancel the request if needed. For example , if the user navigates away from the page before the request is completed or if the request takes too long to complete.
         public async Task Handle(CreateCastCommand request, CancellationToken cancellationToken)
         {
-            _context.Casts.Add(new Cast
+            await _context.Casts.AddAsync(new Cast
             {
                 Biography = request.Biography,
                 Imageurl = request.Imageurl,

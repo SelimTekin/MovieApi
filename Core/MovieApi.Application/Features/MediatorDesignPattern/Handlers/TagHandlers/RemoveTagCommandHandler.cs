@@ -23,6 +23,4 @@ namespace MovieApi.Application.Features.MediatorDesignPattern.Handlers.TagHandle
             await _context.SaveChangesAsync();
         }
     }
-    {
-    }
 }
